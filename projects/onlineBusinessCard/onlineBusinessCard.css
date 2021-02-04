@@ -1,0 +1,78 @@
+/* css reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+/* Positioning */
+
+body {
+  height: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("http://i.imgur.com/9kh3G8L.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.profile-card {
+  width: 480px;
+  max-width: calc(100vw - 10px);
+  border-radius: 4px;
+  box-shadow: hsla(0, 0%, 0%, .8) 10px 10px 80px;
+}
+
+.head, .links {
+  text-align: center;
+}
+
+.head, .content {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.head, .about {
+  margin-bottom: 10%;
+}
+
+.content {
+  padding: 5% 10%;
+  border-top: 1px solid hsla(0, 0%, 30%, .8);
+}
+
+/* Profile image */
+
+.profile-image {
+  margin-top: -60px;
+}
+
+img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: rgba(128, 128, 128);
+  padding: 1px;
+  transition: all 0.5s ease-in-out;
+  filter: grayscale(50%);
+}
+
+img:hover {
+  transform: scale(1.1);
+  filter: grayscale(50%);
+}
+
+/* Contant links */
+
+ul {
+  list-style-type: None;
+}
+
+li {
+  display: inline;
+}

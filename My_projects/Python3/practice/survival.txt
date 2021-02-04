@@ -1,0 +1,17 @@
+Signal Tower:
+	3 Pine Board
+	5 Iron Ingot (x)
+	1 Coil (x)
+	15 Rope
+	20 Pine
+	1 Control Bench (x)
+
+Floor Max:
+	10 Pine
+	10 Stone Brick
+	
+Wall Max:
+	5 Pine
+	5 Stone
+	40 Stone Brick
+	10 Iron

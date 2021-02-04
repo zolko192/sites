@@ -1,0 +1,5 @@
+word - szó
+english - angol
+bitch - kurva
+yes - igen
+no - nem

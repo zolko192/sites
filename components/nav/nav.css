@@ -1,0 +1,48 @@
+/* === GENERAL STYLES === */
+
+* {
+  box-sizing: border-box;
+}
+
+/* === SIMPLE TOP NAVIGATION === */
+
+nav {
+  font-size: 0;
+}
+
+nav ul {
+  background-color: #eee;
+  text-align: center;
+}
+
+nav li {
+  font-family: Arial sans-serif;
+  font-size: 1.4rem;
+  line-height: 3rem;
+  height: 3rem;
+  border-bottom: 1px solid #ccc;
+}
+
+nav a {
+  display: block;
+  text-decoration: none;
+  color: #c74f78;
+}
+
+nav a:hover {
+  background-color: #fff;
+  transition: .3s case-in-out;
+}
+
+nav a.active {
+  background-color: #c74f78;
+  color: #fff;
+}
+
+@media (min-width: 600px) {
+  nav li {
+    display: inline-block;
+    border-bottom: none;
+    width: 7.5rem;
+  }
+}
