@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.8
+#!/usr/bin/python3
 # zene.py
 # __author__ = Horváth Zoltán
 
@@ -15,6 +15,7 @@ def eleresi_ut():
 			szoveg += bekeres;
 			uj = ("{0}{1}".format(szoveg[0:12], szoveg[13:200]));
 			return uj;
+
 
 # Loading the song
 mixer.music.load(eleresi_ut());

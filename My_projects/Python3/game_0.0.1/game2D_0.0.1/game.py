@@ -32,8 +32,8 @@ RED = (255, 0, 0);
 
 # Definiálja a játékos maximum lépéseit.
 tilesize = 40;
-mapwidth = 30;
-mapheight = 20;
+mapwidth = 25;
+mapheight = 15;
 
 # intialize an inventory
 # empty when starting

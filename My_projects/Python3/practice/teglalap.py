@@ -41,12 +41,9 @@ annak területét adja vissza:
 r = Teglalap(Pont(0, 0), 10, 5)
 teszt(r.terulet() == 50) """
 
-class Teglalap:
+class Teglalap(object):
 	""" Téglalap osztály létrehozása, inicializálása. """
 	def __init__(self, x, y):
 		self.x = x;
-		self.y = y;
-		
-	def terulet(self,	
-		
-r = Teglalap();
+		self.y = y;	
+		print("Készülőben!");

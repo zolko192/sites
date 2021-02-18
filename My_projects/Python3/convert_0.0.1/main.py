@@ -9,7 +9,7 @@ class Application(Frame):
 		Frame.__init__(self);
 		self.width = 640;
 		self.height = 480;
-		self.menu = Menus();
+		self.menu = self.Menus();
 		self.pack();
 		
 	def Menus(self):

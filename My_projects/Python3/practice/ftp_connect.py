@@ -2,8 +2,13 @@
 # -*- coding: UTF-8 -*-
 from ftplib import FTP
 
-ftp = FTP('files.000webhost.com');
-ftp.login(user='alinke', passwd='jeanelan22');
-ftp.cwd("/public_html");
-ftp.retrlines("LIST");
-ftp.quit();
+class Ftp_connected(object):
+	
+	def __init__(self):
+		self.ftp = FTP('files.000webhost.com');
+		self.ftp.login(user='alinke', passwd='jeanelan22');
+		self.ftp.cwd("/public_html");
+		self.ftp.retrlines("LIST");
+		self.ftp.quit();
+
+Ftp_connected();

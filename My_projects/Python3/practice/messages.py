@@ -29,3 +29,8 @@ bejovo_uzenetek.mindent_torol()
 # Kitörli az összes üzenetet a bejövő SMS-ek
 ˓ → tárolójából.
 Írd meg az osztályt, készíts egy SMS tároló objektumot, írj teszteket a metódusokhoz és implementáld őket! """
+
+class Messages(object):
+	
+	def __init__(self):
+		print("Készülőben!");

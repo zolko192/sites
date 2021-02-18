@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 #
 #  main.py
@@ -23,15 +23,15 @@
 #  
 #  
 from tkinter import*
-from menu import Menubar
-from program import Program
+from menu import*
 
 class Application(Frame):
 	""" Főalkalmazás """
 	
 	def __init__(self, boss = None):
 		Frame.__init__(self);
-		self.menu = Menubar();
+		Menubar();
+		self.proba();
 		
 	def proba(self, event):
 		self.canvas.canvas1.place_configure(anchor = str(self.mezo1.get()));
@@ -65,7 +65,7 @@ class Application(Frame):
 	
 	def degas(self):
 		self.canvas.create_text(10, 160, anchor =NW, text = 'Danseuses au repos', font =('President', 20), fill ='purple');
-		
-if __name__ == "__main__":
-	app = Application();
-	app.mainloop();
+
+root = Tk();
+app = Application(root);
+root.mainloop();

@@ -2,14 +2,12 @@
 # -*- coding: utf-8 -*- 
 from tkinter import*
 
-class Menubar(Frame):
+class Menubar():
 	""" A legördülő menük sora """
 	
-	def __init__(self, boss = None, root = None):
-		Frame.__init__(self);
-		
+	def __init__(self):	
 		##### Menu <File> #####
-		self.fileMenu = Menubutton(self, text = "File");
+		self.fileMenu = Menubutton(self.root, text = "File");
 		self.fileMenu.pack(side=LEFT);
 		# Menu <File> legördülő része
 		self.fileMenu1 = Menu(self.fileMenu);

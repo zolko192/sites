@@ -2,9 +2,12 @@
 # -*- coding: Utf-8 -*-
 import turtle
 
-ablak = turtle.Screen();
-ablak.title("Szia, Zoli & Eszti");
-zoli = turtle.Turtle();
-zoli.forward(90);
+class Turtle_draw(object):
+	
+	def __init__(self):
+		self.ablak = turtle.Screen();
+		self.ablak.title("Szia, Zoli & Eszti");
+		self.zoli = turtle.Turtle();
+		self.zoli.forward(90);
 
-ablak.mainloop();
+		self.ablak.mainloop();
