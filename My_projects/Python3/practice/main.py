@@ -146,4 +146,4 @@ class Console(object):
 
 
     
-Console();
+Application()

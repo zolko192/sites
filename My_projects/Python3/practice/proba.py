@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
  
+from tkinter import*
 import pygame
  
 # Define some colors
@@ -9,8 +10,9 @@ WHITE = (255, 255, 255);
 BLUE = (0, 0, 255);
 GREEN = (0, 255, 0);
 RED = (255, 0, 0);
- 
+
 pygame.init();
+root = Tk()
  
 # Set the width and height of the screen [width, height]
 size = (700, 500);
@@ -28,7 +30,7 @@ clock = pygame.time.Clock();
 while not done:
     # --- Main event loop
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        if event.type == pygame.QUIT or event.type==pygame.KEYDOWN and event.key==pygame.K_ESCAPE:
             done = True;
  
     # --- Game logic should go here
