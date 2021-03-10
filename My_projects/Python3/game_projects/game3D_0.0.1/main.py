@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 #
 #  main.py
-#  
-#  Copyright 2021 john31 <john31@john31>
+#  verzió: 0.0.1
+#
+#  Copyright 2020 john31 <john31@john31-Aspire-7735>
 #  
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -20,76 +21,46 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
 #  
-#
-# Pygame inicializálása
+# 
+import sys
 import pygame
-pygame.init()
+import game
 
-class Background(object):
-    """ Háttérkép osztály létrehozása """
+class Main(object):
+    """ Főosztály """
     def __init__(self):
-        pass
-
-
-class Window(object):
-    """ Ablak létrehozása és szabályozása """
-    def __init__(self):
-        pass
-
-    def setScreen(self, sizex, sizey, fullscreen = False):
-        global screen
-        self.sizex = sizex
-        self.sizey = sizey
-        if fullscreen:
-            screen = pygame.display.set_mode((self.sizex, self.sizey), pygame.FULLSCREEN)
-        else:
-            screen = pygame.display.set_mode((self.sizex, self.sizey))
-        
-        self.title = self.setTitle("Game3D_0.0.1")
-
-    def setTitle(self, titles):
-        self.titles = titles
-        self.titles = pygame.display.set_caption(self.titles)
-
-    def setUpdate(self):
-        pygame.display.flip()
-
-    def setFps(self, fps):
-        self.fps = fps
+        # Game osztály példányosítása
+        self.game = game.Game()
+        self.mapwidth, self.mapheight, self.tilesize = self.game.mapwidth, self.game.mapheight, self.game.tilesize
+        self.player, self.player_pos = self.game.player, self.game.player_pos
+        # Főképernyő létrehozása
+        self.screen = pygame.display.set_mode((self.mapwidth * self.tilesize, self.mapheight * self.tilesize + 50))
+        self.title = pygame.display.set_caption("Game3D_0.0.1")
         self.clock = pygame.time.Clock()
-        self.clock.tick(self.fps)
+        self.fps = 60
 
-    def endWait(self):
-        # Főképernyő végtelen ciklusa
-        self.waiting = True
-        while self.waiting:
-            # Képernyő háttér kitöltése
-            screen.fill(pygame.Color("white"))
+    def Main_loop(self):
+        self.running = True
+        ##### <Main loop> #####
+        while self.running:
+            self.screen.fill(pygame.Color("black"))
             ##### <Eseménykezelő> #####
             for event in pygame.event.get():
                 if event.type == pygame.QUIT or event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                    self.waiting = False
+                    self.running = False
                     pygame.quit()
-                    quit()
+                    sys.exit()
 
-            # Rajzolás
+                # Játékos karakter mozgása
+                self.game.player_event(event)
             
 
-            # Képernyő és fps beillesztése
-            self.setUpdate()
-            self.setFps(60)
+            self.screen.blit(self.player, (self.player_pos[0] * self.tilesize, self.player_pos[1] * self.tilesize))
 
-        # Bezárás
-        pygame.quit()
-        quit()
+            pygame.display.flip()
+            self.clock.tick(60)
 
 
-class Application(object):
-    """ Fő alkalmazás """
-    def __init__(self):
-        self.root = Window()
-        self.root.setScreen(800, 600)
-        self.root.endWait()
-
-
-Application()
+if __name__ == "__main__":
+    main = Main()
+    main.Main_loop()

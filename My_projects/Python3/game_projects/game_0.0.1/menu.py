@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from tkinter import* 
+from tkinter import*
+import game
 
 class Menubar(Frame):
 	""" Menubar létrehozása """
@@ -30,9 +31,19 @@ class Menubar(Frame):
 		# Menu <Edit> integrálása
 		self.editMenu.configure(menu=self.editMenu1)
 
+		##### Menu <Game> #####
+		self.gameMenu = Menubutton(self, text = "Game")
+		self.gameMenu.place(x = 90, y = 10)
+		# Menu <Game> legördülő része
+		self.gameMenu1 = Menu(self.gameMenu)
+		self.gameMenu1.add_command(label = "Új játék indítása", command = lambda: game.Application())
+
+		# Menu <Game> integrálása
+		self.gameMenu.configure(menu=self.gameMenu1)
+
 		##### Menu <Zenészek> #####
 		self.musicMenu = Menubutton(self, text = "Zenészek")
-		self.musicMenu.place(x = 90, y = 10)
+		self.musicMenu.place(x = 140, y = 10)
 		# Menu <Zenészek> legördülő része
 		self.musicMenu1 = Menu(self.musicMenu)
 		self.musicMenu1.add_command(label = "17. század", underline = 1, foreground = "red", background = "yellow", font = ("Comic Sans Ms", 11))
@@ -42,7 +53,7 @@ class Menubar(Frame):
 
 		##### Menu <Festők> #####
 		self.paintMenu = Menubutton(self, text = "Festők")
-		self.paintMenu.place(x = 170, y = 10)
+		self.paintMenu.place(x = 220, y = 10)
 		# Menu <Festők> legördülő része
 		self.paintMenu1 = Menu(self.paintMenu)
 		self.paintMenu1.add_command(label = "Klasszikusok", state = DISABLED)

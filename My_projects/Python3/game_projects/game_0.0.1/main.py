@@ -41,4 +41,3 @@ class Application(object):
         self.widget.labels()
         self.widget.mezos()
         self.widget.buttons()
-        self.widget.scales()

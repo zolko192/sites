@@ -1,4 +1,5 @@
 from tkinter import*
+from tkinter import colorchooser
 from canvas import*
 
 class Widgets(Frame):
@@ -7,6 +8,10 @@ class Widgets(Frame):
         Frame.__init__(self, width = 556, height = 700, bg = "gray")
         self.place(x = 810, y = 55)
         self.proba = Vaszon(master)
+
+    def colors(self):
+        self.color_choose = colorchooser.askcolor()
+        print(self.color_choose)
     
     def labels(self):
         self.labelX = Label(self, text = "X:")
@@ -47,25 +52,10 @@ class Widgets(Frame):
         self.rajz.place(x = 100, y = 210)
         self.torles = Button(self, text = "Törlés", width = 8, command = lambda: self.proba.canvas_del())
         self.torles.place(x = 100, y = 250)
+        self.szinek = Button(self, text = "Színek", width = 8, command = self.colors)
+        self.szinek.place(x = 100, y = 290)
         self.kilep = Button(self, text = "Kilépés", width = 8, command = lambda: quit())
-        self.kilep.place(x = 100, y = 310)
-
-    def scales(self):
-        self.a, self.b, self.c, self.d = 30, 35, 40, 45
-        self.scale1 = Scale(self, command = self.success)
-        self.scale1.set(self.a)
-        self.scale1.place(x = 250, y = 50)
-        self.scale2 = Scale(self, command = self.success)
-        self.scale2.set(self.b)
-        self.scale2.place(x = 310, y = 50)
-        self.scale3 = Scale(self, command = self.success)
-        self.scale3.set(self.c)
-        self.scale3.place(x = 370, y = 50)
-        self.scale4 = Scale(self, command = self.success)
-        self.scale4.set(self.d)
-        self.scale4.place(x = 430, y = 50)
-        self.siker()
-          
+        self.kilep.place(x = 100, y = 370)
 
     def kiertekel(self, event):
         self.proba.circles(x = self.posX.get(), y = self.posY.get(), posx = self.pos_x.get(), posy = self.pos_y.get(), width = self.mezo_width.get(), color = self.mezo_color.get())
@@ -85,17 +75,3 @@ class Widgets(Frame):
             self.proba.circles(41.3, 77.5, 46.5, 82.5, 0, "blue"),
             self.proba.circles(70, 75, 80, 85, 0, "blue"),
         ]
-
-    def siker(self):
-        self.label1 = Label(self, text = "")
-        self.label1.place(x = 250, y = 30)
-        self.label2 = Label(self, text = "")
-        self.label2.place(x = 300, y = 30)
-        self.label3 = Label(self, text = "")
-        self.label3.place(x = 350, y = 30)
-        self.label4 = Label(self, text = "")
-        self.label4.place(x = 400, y = 30)
-
-    def success(self, e):
-        self.label1.config(text = "Sikeres: " + e)
-        self.proba.circles(self.scale1.get(), self.scale2.get(), self.scale3.get(), self.scale4.get())
