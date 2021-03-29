@@ -21,23 +21,20 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
 #  
-#  
-from tkinter import*
-from menu import*
-from canvas import*
-from widget import*
+# 
+import tkinter as tk
+from program import Program
 
-class Application(object):
-    """ Főprogram """
-    def __init__(self, master):
-        # Menu class read
-        self.menus = Menubar(master)
+class Application(tk.Frame):
+    """ Tkinter inicializálása """
+    def __init__(self, master = None):
+        super().__init__(master)
+        self.master = master
+        self.program = Program(self.master)
 
-        # Canvas class read
-        self.vaszon = Vaszon(master)
-        
-        # Widgets class read
-        self.widget = Widgets(master)
-        self.widget.labels()
-        self.widget.mezos()
-        self.widget.buttons()
+if __name__ == "__main__":
+    root = tk.Tk()
+    root.geometry("1366x768+0+0")
+    root.title("Beta_0.0.1")
+    app = Application(master=root)
+    app.mainloop()

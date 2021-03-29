@@ -31,10 +31,13 @@ class Main(object):
     def __init__(self):
         # Game osztály példányosítása
         self.game = game.Game()
-        self.mapwidth, self.mapheight, self.tilesize = self.game.mapwidth, self.game.mapheight, self.game.tilesize
+        self.mapwidth, self.mapheight, self.tilesize, self.tilemap = self.game.mapwidth, self.game.mapheight, self.game.tilesize, self.game.tilemap
         self.player, self.player_pos = self.game.player, self.game.player_pos
+        self.textures, self.resources, self.inventory = self.game.textures, self.game.resources, self.game.inventory
         # Főképernyő létrehozása
-        self.screen = pygame.display.set_mode((self.mapwidth * self.tilesize, self.mapheight * self.tilesize + 50))
+        self.screen = pygame.display.set_mode((self.mapwidth * self.tilesize, self.mapheight * self.tilesize + 70))
+        # Létrehozza az inventory betűkészletét
+        self.inventory_font = pygame.font.Font("freesansbold.ttf", 18)
         self.title = pygame.display.set_caption("Game3D_0.0.1")
         self.clock = pygame.time.Clock()
         self.fps = 60
@@ -54,7 +57,21 @@ class Main(object):
                 # Játékos karakter mozgása
                 self.game.player_event(event)
             
+            # Nyersanyagok feltöltése a képernyőre
+            for self.row in range(self.mapheight):
+                for self.column in range(self.mapwidth):
+                    self.screen.blit(self.textures[self.tilemap[self.row][self.column]], (self.column * self.tilesize, self.row * self.tilesize))
+            
+            # Render inventory
+            self.place_pos = 10
+            for self.item in self.resources:
+                self.screen.blit(self.textures[self.item], (self.place_pos, self.mapheight * self.tilesize + 20))
+                self.place_pos += 30
+                self.text_obj = self.inventory_font.render(str(self.inventory[self.item]), True, pygame.Color("white"), pygame.Color("black"))
+                self.screen.blit(self.text_obj, (self.place_pos, self.mapheight * self.tilesize + 20))
+                self.place_pos += 50
 
+            # Játékos képének feltöltése képernyőre
             self.screen.blit(self.player, (self.player_pos[0] * self.tilesize, self.player_pos[1] * self.tilesize))
 
             pygame.display.flip()
@@ -62,5 +79,6 @@ class Main(object):
 
 
 if __name__ == "__main__":
+    pygame.init()
     main = Main()
     main.Main_loop()

@@ -4,6 +4,8 @@ import sys
 import random
 import pygame
 
+pygame.init()
+
 # 1, Create a character and a game loop.
 # 2, Registering events for your character.
 # 3, Let’s make the world a little more interesting by adding a map.
