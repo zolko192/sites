@@ -10,21 +10,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <title>The my projects</title>
 </head>
-<body>
-  <?php   
-    if (isset($_POST['kuld'])) { 
-      if ($_FILES["file"]["error"] > 0) {
-        echo "Hibakód: " . $_FILES["file"]["error"] . "<br>";
-      } else {
-        echo "Fájlnév: " . $_FILES["file"]["name"] . "<br>";
-        echo "Fájltípus: " . $_FILES["file"]["type"] . "<br>";
-        echo "Fájlméret: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-        echo "Átmeneti könyvtár: " . $_FILES["file"]["tmp_name"]. "<br>";
-        echo "Ha a fájl jellemzői megfelők, akkor <br>
-            már csak a kívánt könyvtárba kell másolni ..." ;
-      }			
-    } 			  
-  ?>   
+<body>  
   <header>
     <div class = "cover">
       <div class = "wrapper">
@@ -47,6 +33,21 @@
   
   <main>
     <div class = "main-wrapper">
+      <?php 
+if (isset($_POST['kuld'])) { 
+  if ($_FILES["file"]["error"] > 0) {
+    echo "Hibakód: " . $_FILES["file"]["error"] . "<br>";
+      } 
+else {
+  echo "Fájlnév: " . $_FILES["file"]["name"] . "<br>";
+  echo "Fájltípus: " . $_FILES["file"]["type"] . "<br>";
+  echo "Fájlméret: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+  echo "Átmeneti könyvtár: " . $_FILES["file"]["tmp_name"]. "<br>";
+  echo "Ha a fájl jellemzői megfelők, akkor <br>
+            már csak a kívánt könyvtárba kell másolni ..." ;
+      }			
+    } 			  
+  ?> 
       <h2>Input file használata </h2>
       <form action="php5_form_post_file.php" method="post" enctype="multipart/form-data"> 
         <label for="file_id">Fájlnév:</label>
