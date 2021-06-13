@@ -1,0 +1,12 @@
+After that step, I compared the config.ini file located in:
+
+C:\Users\USER\.android\avd\DEVICE_ID
+On Ubuntu/Linux it'll be in
+
+~/.android/avd/DEVICE_ID
+Change the following variables to:
+
+PlayStore.enabled = true
+image.sysdir.1=system-images\android-27\google_apis_playstore\x86\
+tag.display=Google Play
+tag.id=google_apis_playstore
