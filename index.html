@@ -22,32 +22,17 @@
     <ul>
       <li><a href = "https://zolko192.github.io/sites/">Kezdőlap</a></li>
       <li><a href = "components/components.html">Components</a></li>
-      <li><a href = "https://zolko192.github.io/sites/projects/onlineBusinessCard/onlineBusinessCard.html">Online Business Card</a></li>
-      <li><a href = "https://zolko192.github.io/sites/projects/wedding/wedding.html">Zoe & Alex</a></li>
-      <li><a href = "https://zolko192.github.io/sites/projects/wikipedia/wikipedia.html">Wikipedia</a></li>
-      <li><a href = "https://zolko192.github.io/sites/projects/szinora/szinora.html">Szinóra</a></li>
-      <li><a href = "https://zolko192.github.io/sites/projects/mars/mars.html">Mars</a></li>
-      <li><a href = "https://zolko192.github.io/sites/projects/canvas/canvas.html">Canvas</a></li>
+      <li><a href = "projects/onlineBusinessCard/onlineBusinessCard.html">Online Business Card</a></li>
+      <li><a href = "projects/wedding/wedding.html">Zoe & Alex</a></li>
+      <li><a href = "projects/wikipedia/wikipedia.html">Wikipedia</a></li>
+      <li><a href = "projects/szinora/szinora.html">Szinóra</a></li>
+      <li><a href = "projects/mars/mars.html">Mars</a></li>
+      <li><a href = "projects/canvas/canvas.html">Canvas</a></li>
     </ul>
   </nav>
   
   <main>
     <div class = "main-wrapper">
-      <?php   
-        if (isset($_POST['kuld'])) { 
-          if ($_FILES["file"]["error"] > 0) {
-            echo "Hibakód: " . $_FILES["file"]["error"] . "<br>";
-          } else {
-            echo "Fájlnév: " . $_FILES["file"]["name"] . "<br>";
-            echo "Fájltípus: " . $_FILES["file"]["type"] . "<br>";
-            echo "Fájlméret: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-            echo "Átmeneti könyvtár: " . $_FILES["file"]["tmp_name"]. "<br>";
-            echo "Ha a fájl jellemzői megfelők, akkor <br>
-                már csak a kívánt könyvtárba kell másolni ..." ;
-          }			
-        } 			  
-      ?> 
-      <h2>Input file használata </h2>
       <form action="php5_form_post_file.php" method="post" enctype="multipart/form-data"> 
         <label for="file_id">Fájlnév:</label>
         <input type="file" name="file" id="file_id"><br>
