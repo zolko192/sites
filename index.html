@@ -9,9 +9,6 @@
   <link rel="stylesheet" type="text/css" href="main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <title>The my projects</title>
-  <?php
-  echo "hello".$_SERVER["REMOTE_ADDR"];
-  ?>
 </head>
 <body>   
   <header>
@@ -36,11 +33,9 @@
   
   <main>
     <div class = "main-wrapper">
-      <form action="php5_form_post_file.php" method="post" enctype="multipart/form-data"> 
-        <label for="file_id">Fájlnév:</label>
-        <input type="file" name="file" id="file_id"><br>
-        <input type="submit" name="kuld" value="Feltöltés">
-      </form> 
+      <?php
+      echo "hello"
+      ?> 
     </div>
   </main>
   
