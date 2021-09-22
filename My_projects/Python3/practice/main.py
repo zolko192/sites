@@ -39,6 +39,8 @@ class Frames(object):
         self.button1.pack();
         self.button2 = Button(self.frame, text = "Második");
         self.button2.pack();
+        self.button3 = Button(self.frame, text = "Console");
+        self.button3.pack()
 
         
     

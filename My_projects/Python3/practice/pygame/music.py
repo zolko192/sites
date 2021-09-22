@@ -12,7 +12,7 @@ playButton.place(x = 10, y = 100)
 stopButton = Button(root, text = "Stop", command = lambda: play_stop())
 stopButton.place(x = 80, y = 100)
 def play_music():
-    mixer.music.load("zene.mp3")
+    mixer.music.load("/home/john35/Letöltések/Music/Rich - Magyar Retro Disco Mix #1 - YouTube.MP3")
     mixer.music.play()
 
 def play_stop():
