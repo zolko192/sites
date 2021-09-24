@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from character import Character
+from ember import Ember
 
 class Widgets(object):
     """ Widgetek létrehozása """
@@ -108,6 +109,8 @@ class Widgets(object):
         self.mozgas.place(x = 90, y = 220)
         self.kilep = tk.Button(self.frame, text = "Kilépés", width = 8, command = lambda: self.frame.quit())
         self.kilep.place(x = 90, y = 260)
+        self.pygames = tk.Button(self.frame, text = "Pygame", width = 8, command = lambda: Ember())
+        self.pygames.place(x = 90, y = 300)
 
     def moves_button(self):
         self.up = tk.Button(self.frame, text = "Fel", width = 8, command = self.character.up)
