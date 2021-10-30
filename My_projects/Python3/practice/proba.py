@@ -1,56 +1,73 @@
-#!/usr/bin/env python3
-# -*- coding: UTF-8 -*-
- 
-from tkinter import*
 import pygame
- 
-# Define some colors
-BLACK = (0, 0, 0);
-WHITE = (255, 255, 255);
-BLUE = (0, 0, 255);
-GREEN = (0, 255, 0);
-RED = (255, 0, 0);
+import os
+import time
+import sys
 
-pygame.init();
-root = Tk()
- 
-# Set the width and height of the screen [width, height]
-size = (700, 500);
-screen = pygame.display.set_mode(size);
- 
-pygame.display.set_caption("My Game");
- 
-# Loop until the user clicks the close button.
-done = False;
- 
-# Used to manage how fast the screen updates
-clock = pygame.time.Clock();
- 
-# -------- Main Program Loop -----------
-while not done:
-    # --- Main event loop
+pygame.font.init()
+
+width_x, height_x = 720, 450
+char_x, char_y = 50, 50
+nush_x, nush_y = 200, 40
+other_char_x, other_char_y = 800, 50
+
+WIN = pygame.display.set_mode((width_x, height_x))
+pygame.display.set_caption('Movement Simulator')
+font = pygame.font.SysFont('comicSans', 50)
+font1 = pygame.font.SysFont('comicSans', 10)
+
+
+# assets import
+backGround = pygame.transform.scale(pygame.image.load(os.path.join('poop.png')), (width_x, height_x))
+character = pygame.transform.scale(pygame.image.load(os.path.join('meep2.png')), (char_x, char_y))
+leg_piece = pygame.image.load(os.path.join('oof.jpg'))
+other_character = pygame.image.load(os.path.join('loop.png'))
+
+def renderMeNow():
+    pressSpace = font.render(f'Press the space button', 1, (255, 255, 255))
+    name = font1.render(f"I'm Sus", 1, (255, 0, 0))
+    WIN.blit(backGround, (0, 0))
+    WIN.blit(pressSpace, (50, 10))
+    WIN.blit(other_character, (other_char_x, other_char_y))
+    WIN.blit(name, (nush_x, nush_y))
+    WIN.blit(character, (char_x, char_y))
+    # WIN.blit(leg_piece, (char_x, char_y))
+    pygame.display.update()
+
+
+def movement():
+    global width_x, height_x, char_x, char_y, nush_x, nush_y, other_char_x, other_char_y
+    if pygame.key.get_pressed()[pygame.K_UP] and pygame.key.get_pressed()[pygame.K_SPACE]:
+        char_y -= 5
+        nush_y -= 5
+    if pygame.key.get_pressed()[pygame.K_UP]:
+        char_y -= 1
+        nush_y -= 1
+    if pygame.key.get_pressed()[pygame.K_DOWN]:
+        char_y += 1
+        nush_y += 1
+    if pygame.key.get_pressed()[pygame.K_DOWN] and pygame.key.get_pressed()[pygame.K_SPACE]:
+        char_y += 5
+        nush_y += 5
+    if pygame.key.get_pressed()[pygame.K_LEFT]:
+        char_x -= 1
+        nush_x -= 1
+    if pygame.key.get_pressed()[pygame.K_LEFT] and pygame.key.get_pressed()[pygame.K_SPACE]:
+        char_x -= 5
+        nush_x -= 5
+    if pygame.key.get_pressed()[pygame.K_RIGHT]:
+        char_x += 1
+        nush_x += 1
+    if pygame.key.get_pressed()[pygame.K_RIGHT] and pygame.key.get_pressed()[pygame.K_SPACE]:
+        char_x += 5
+        nush_x += 5
+    if pygame.key.get_pressed()[pygame.K_u]:
+        WIN.blit(leg_piece, (char_x, char_y))
+        print('NUSH')
+
+
+while True:
+    renderMeNow()
     for event in pygame.event.get():
-        if event.type == pygame.QUIT or event.type==pygame.KEYDOWN and event.key==pygame.K_ESCAPE:
-            done = True;
- 
-    # --- Game logic should go here
- 
-    # --- Screen-clearing code goes here
- 
-    # Here, we clear the screen to white. Don't put other drawing commands
-    # above this, or they will be erased with this command.
- 
-    # If you want a background image, replace this clear with blit'ing the
-    # background image.
-    screen.fill(WHITE);
- 
-    # --- Drawing code should go here
- 
-    # --- Go ahead and update the screen with what we've drawn.
-    pygame.display.flip();
- 
-    # --- Limit to 60 frames per second
-    clock.tick(60);
- 
-# Close the window and quit.
-pygame.quit();
+        if event.type == pygame.QUIT:
+            sys.exit()
+    movement()

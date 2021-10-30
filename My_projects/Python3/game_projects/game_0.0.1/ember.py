@@ -38,8 +38,8 @@ class Ember(object):
                         self.x -= 10
                         print(self.x)
 
-            self.drawing.circles(self.x, self.y)
-            pygame.display.update()
+                self.drawing.circles(self.x, self.y)
+                pygame.display.update()
 
 class Draw_Ember(object):
     """ Ember lerajzolása """
