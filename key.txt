@@ -1,3 +1,2 @@
-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
+https://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@github.com/zolko192/sites.git
 
-git clone https://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@github.com/zolko192/sites.git
