@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel = "stylesheet", type = "text/css", href = "styles.css">
+  <script src = "scripts.js" async = ""></script>
+  <title>Program 3.0</title>
+</head>
+<body>
+  <div class = "container">
+    <form>
+      <fieldset>
+        <legend><h1>Hamburger rendelés</h1></legend>
+        <label for = "">Feltét</label><br>
+        <input type = "text", name = "feltet-input"><br><br>
+        <label for = "">Mennyiség</label><br>
+        <input type = "number", name = "amount-input", value = "1"><br><br>
+        <small>Minimum 1, Maximum 10 db</small><br><br>
+        <div>Fizetendő: <span class = "show-amount">0 </span>Ft<br><br>
+        <input type = "button", name = "btn", onclick = "calcAmount()", value = "Megrendelés"><br><br>
+      </fieldset>
+    </form>
+    
+</body>
+</html>
