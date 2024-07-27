@@ -1,7 +1,5 @@
 import tkinter as tk
 from tkinter import ttk
-from character import Character
-from ember import Ember
 
 class Widgets(object):
     """ Widgetek létrehozása """
