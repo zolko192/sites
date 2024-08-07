@@ -38,7 +38,7 @@ def tabla_rajzolas(kiralynok):
 	szinek = [(255, 0, 0), (0, 0, 0)];	# A színek beállítása (red, black)
 	
 	n = len(kiralynok);	# A tábla mérete: nxn.
-	felulet_meret = 480;	# A felület javasolt fizikai mérete.
+	felulet_meret = 960;	# A felület javasolt fizikai mérete.
 	mezo_meret = felulet_meret // n;	# A négyzetek oldalhosszúsága.
 	felulet_meret = n * mezo_meret;	# Az n négyzet méretéhez igazítjuk a felületet
 	
